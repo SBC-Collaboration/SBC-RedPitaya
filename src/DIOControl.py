@@ -2,6 +2,8 @@ import time
 import rp 
 from rp_overlay import overlay
 
+# this is an example of of a DIO clock, to test the DIO channels
+
 fpga = overlay()
 rp.rp_Init()
 
