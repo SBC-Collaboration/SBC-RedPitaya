@@ -173,16 +173,16 @@ except KeyboardInterrupt:
 
 time_axis = np.arange(N) / sample_rate
 
-plt.figure(figsize=(10, 6))
-plt.plot(time_axis, data_VB, label="Captured Signal")
-plt.xlim([time_axis[0], time_axis[-1]])    
-plt.ylim([-1, 1])       
-plt.title("Oscilloscope-Style Capture from Red Pitaya")
-plt.xlabel("Time (s)")
-plt.ylabel("Voltage (V)")
-plt.grid(True)
-plt.legend()
-plt.show()
+#plt.figure(figsize=(10, 6))
+#plt.plot(time_axis, data_VB, label="Captured Signal")
+#plt.xlim([time_axis[0], time_axis[-1]])    
+#plt.ylim([-1, 1])       
+#plt.title("Oscilloscope-Style Capture from Red Pitaya")
+#plt.xlabel("Time (s)")
+#plt.ylabel("Voltage (V)")
+#plt.grid(True)
+#plt.legend()
+#plt.show()
 
 save_dir = r"stick_tube1"
 
@@ -195,8 +195,8 @@ np.save(os.path.join(save_dir, "data_VA.npy"), data_VA)
 np.save(os.path.join(save_dir, "data_VB.npy"), data_VB)
 
 
-plot_path = os.path.join(save_dir, "last_capture1.png")
-plt.savefig(plot_path, dpi=300)
+#plot_path = os.path.join(save_dir, "last_capture1.png")
+#plt.savefig(plot_path, dpi=300)
 
 print(f"Data and plot saved to: {save_dir}")
 print("Files created: data_VA.npy, data_VB.npy, last_capture1.png")
