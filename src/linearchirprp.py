@@ -16,7 +16,7 @@ waveform = rp.RP_WAVEFORM_ARBITRARY
 waveform2 = rp.RP_WAVEFORM_ARBITRARY
 freq = 10000
 #sine_freq = 1 / 2e-6
-ampl = 0.1
+ampl = 1.0
 
 # burst mode settings
 ncyc = 1     # only 3 cycle in the burst
