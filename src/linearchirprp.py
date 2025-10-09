@@ -16,7 +16,7 @@ waveform = rp.RP_WAVEFORM_ARBITRARY
 waveform2 = rp.RP_WAVEFORM_ARBITRARY
 freq = 10000
 #sine_freq = 1 / 2e-6
-ampl = 0.03
+ampl = 0.1
 
 # burst mode settings
 ncyc = 1     # only 3 cycle in the burst
@@ -166,7 +166,7 @@ try:
         rp.rp_AcqGetOldestDataV(rp.RP_CH_1, N, fbuff_B)
         for i in range(N):
             data_VB[i] = fbuff_B[i]
-        time.sleep(1)
+        time.sleep(0.1)
 
 except KeyboardInterrupt:
     print("acquisition loop interrupted.")
