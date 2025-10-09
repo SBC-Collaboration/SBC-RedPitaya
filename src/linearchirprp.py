@@ -16,7 +16,7 @@ waveform = rp.RP_WAVEFORM_ARBITRARY
 waveform2 = rp.RP_WAVEFORM_ARBITRARY
 freq = 10000
 #sine_freq = 1 / 2e-6
-ampl = 1.0
+ampl = 0.1
 
 # burst mode settings
 ncyc = 1     # only 3 cycle in the burst
@@ -111,7 +111,7 @@ rp.rp_AcqSetTriggerSrc(acq_trig_sour)
 
 time.sleep(1)
 
-rp.rp_GenTriggerOnly(channel)       # Trigger generator
+rp.rp_GenTriggerOnly(channel2)       # Trigger generator
 # rp.rp_GenTriggerOnlyBoth()
 
 print(f"Trigger state: {rp.rp_AcqGetTriggerState()[1]}")
@@ -149,7 +149,7 @@ try:
         # Specify trigger - input 1 positive edge
         rp.rp_AcqSetTriggerSrc(acq_trig_sour)
         
-        rp.rp_GenTriggerOnly(channel)
+        rp.rp_GenTriggerOnly(channel2)
         # rp.rp_GenTriggerOnlyBoth()
         
         # wait for the trigger event for sequence B
