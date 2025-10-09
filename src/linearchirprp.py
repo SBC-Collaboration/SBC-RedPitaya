@@ -111,8 +111,8 @@ rp.rp_AcqSetTriggerSrc(acq_trig_sour)
 
 time.sleep(1)
 
-# rp.rp_GenTriggerOnly(channel)       # Trigger generator
-rp.rp_GenTriggerOnlyBoth()
+rp.rp_GenTriggerOnly(channel)       # Trigger generator
+# rp.rp_GenTriggerOnlyBoth()
 
 print(f"Trigger state: {rp.rp_AcqGetTriggerState()[1]}")
 
@@ -149,8 +149,8 @@ try:
         # Specify trigger - input 1 positive edge
         rp.rp_AcqSetTriggerSrc(acq_trig_sour)
         
-        # rp.rp_GenTriggerOnly(channel)
-        rp.rp_GenTriggerOnlyBoth()
+        rp.rp_GenTriggerOnly(channel)
+        # rp.rp_GenTriggerOnlyBoth()
         
         # wait for the trigger event for sequence B
         while rp.rp_AcqGetTriggerState()[1] != rp.RP_TRIG_STATE_TRIGGERED:
