@@ -62,12 +62,12 @@ rp.rp_AcqReset()
 print("Gen_start")
 rp.rp_GenWaveform(channel, waveform)
 rp.rp_GenArbWaveform(channel, x.cast(), N)  # load the custom sine wave into the generator
-rp.rp_GenFreqDirect(channel, 1 / chirp_duration)
+rp.rp_GenFreqDirect(channel, 1.0 / chirp_duration)
 rp.rp_GenAmp(channel, chirp_amp)
 
 rp.rp_GenWaveform(channel2, waveform)
 rp.rp_GenArbWaveform(channel2, x2.cast(), N)  # load the custom sine wave into the generator
-rp.rp_GenFreqDirect(channel2, 1 / chirp_duration)
+rp.rp_GenFreqDirect(channel2, 1.0 / chirp_duration)
 rp.rp_GenAmp(channel2, chirp_amp)
 
 # set burst mode properties
