@@ -27,7 +27,7 @@ N = 16384  # number of samples, buffer (max 16384)
 t = np.arange(N, dtype=np.float64) * chirp_duration
 
 x = rp.arbBuffer(N)
-x2 = rp.arbBufffer(N)
+x2 = rp.arbBuffer(N)
 x_temp = 0.5 * (1 - np.cos(2 * np.pi *
                            t *
                            (chirp_freq_low + t *
