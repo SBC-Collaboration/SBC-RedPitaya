@@ -87,4 +87,6 @@ try:
 except KeyboardInterrupt:
     print("acquisition loop interrupted.")
 
+rp.rp_GenReset()
+
 rp.rp_Release()
