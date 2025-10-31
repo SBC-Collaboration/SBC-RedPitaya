@@ -24,12 +24,12 @@ gen_trig_sour = rp.RP_GEN_TRIG_SRC_INTERNAL
 
 # Arbitrary Waveforms
 N = 16384  # number of samples, buffer (max 16384)
-t = np.arange(N, dtype=np.float64) * chirp_duration
+t = np.arange(N, dtype=np.float64) * chirp_duration / np.float64(N)
 
 x = rp.arbBuffer(N)
 x2 = rp.arbBuffer(N)
 phi_over_2pi = t * (chirp_freq_low + 0.5 * t * 
-                    (chirp_freq_high - chirp_freq_low)/chirp_duration)
+                    ((chirp_freq_high - chirp_freq_low)/chirp_duration))
 n_full_cycles = np.floor(phi_over_2pi[-1])
 phi_over_2pi[phi_over_2pi>n_full_cycles] = n_full_cycles
 
