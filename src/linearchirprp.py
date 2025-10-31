@@ -20,7 +20,7 @@ rp.rp_Init()
 channel = rp.RP_CH_1
 channel2 = rp.RP_CH_2
 waveform = rp.RP_WAVEFORM_ARBITRARY
-
+gen_trig_sour = rp.rp.RP_GEN_TRIG_SRC_INTERNAL
 
 # Arbitrary Waveforms
 N = 16384  # number of samples, buffer (max 16384)
