@@ -43,8 +43,8 @@ for i in range(N):
 # burst mode settings
 ncyc = 1     # only 1 cycle in the burst
 nor = 65536        # 65536 -> burst repeats forever
-period = np.uint32(np.float(1e6)/chirp_reprate) # period between bursts, not used for single burst
-freq = np.float64(1.0 / chirp_duration)
+period = int(np.round((np.float64(1e6)/chirp_reprate))) # period between bursts, not used for single burst
+freq = float(1.0 / chirp_duration)
 
 # reset the generator and acquisition system
 rp.rp_GenReset()
