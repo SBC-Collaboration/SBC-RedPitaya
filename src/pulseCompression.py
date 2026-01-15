@@ -38,3 +38,53 @@ def pad_length(tx_signal, rx_signal):
         new_tx_signal = 1j * np.zeros(len(rx_signal))
         new_tx_signal[1:len(tx_signal)+1] = tx_signal
         return new_tx_signal
+
+
+import numpy as np
+from scipy.signal import fftconvolve
+
+def pulse_compress(tx, rx):
+    #remove DC offsets 
+    tx = tx - np.mean(tx)
+    rx = rx - np.mean(rx)
+
+    #matched filter: time-reversed, conjugated chirp
+    h = np.conj(tx[::-1])
+
+    #linear convolution (matched filtering)
+    y = fftconvolve(rx, h, mode="same")
+
+    #rnvelope (magnitude)
+    envelope = np.abs(y)
+
+    return envelope
+
+#Catrina's CODE (version 4 lol)
+import numpy as np
+
+def pulse_compress_fft(tx, rx):
+
+    #remove DC offsets
+    tx = tx - np.mean(tx)
+    rx = rx - np.mean(rx)
+
+    N = len(rx)
+
+    #matched filter = time-reversed, conjugated 
+    #so u can "slide it backwards"
+    h = np.conj(tx[::-1])
+
+    #FFTs (zero padding to be safe, h to rx length)
+    H = np.fft.fft(h, n=N)
+    R = np.fft.fft(rx, n=N)
+
+    #multiplying ffts
+    Y = R * H
+
+    # inverse fft of multiplied
+    y = np.fft.ifft(Y)
+
+    #envelope (might want to remove abs later on)
+    envelope = np.abs(y)
+
+    return envelope
