@@ -1,5 +1,6 @@
 import numpy as np
 import scipy.signal as sp
+import matplotlib.pyplot as plt
 
 def pulseCompress(tx_signal, rx_signal):
     #Performs pulse compression
@@ -88,3 +89,28 @@ def pulse_compress_fft(tx, rx):
     envelope = np.abs(y)
 
     return envelope
+
+
+#COMPARE
+
+old_out = pulseCompress(tx, rx)
+new_out = pulse_compress_fft(tx, rx)
+
+# Align outputs (??)
+new_out = np.roll(new_out, -len(tx)//2)
+old_out = np.roll(old_out, -len(tx)//2)
+
+plt.figure(figsize=(12,6))
+
+plt.plot(old_out, label="Old code output", alpha=0.7)
+plt.plot(new_out, label="New (correct) output", linewidth=2)
+
+plt.axvline(delay_samples, color='k', linestyle='--', label="True arrival time")
+
+plt.legend()
+plt.xlabel("Sample index")
+plt.ylabel("Amplitude")
+plt.title("Old vs New Pulse Compression Comparison")
+plt.tight_layout()
+plt.show()
+
